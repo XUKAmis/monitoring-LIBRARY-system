@@ -1,0 +1,12 @@
+Science
+B001 Introduction to Physics 29.99 Isaac Newton Cambridge University Press 50
+Science
+B002 The Origin of Species 34.99 Charles Darwin Penguin Books 40
+Social
+B101 The Wealth of Nations 24.99 Adam Smith Random House 30
+Social
+B102 Democracy in America 27.50 Alexis de Tocqueville HarperCollins 35
+Foreign
+B201 The Little Prince 12.95 Antoine de Saint-Exupéry Houghton Mifflin Harcourt French 20
+Foreign
+B202 One Hundred Years of Solitude 19.99 Gabriel García Márquez Harper & Row Spanish 25
