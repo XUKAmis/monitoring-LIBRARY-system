@@ -1,3 +1,1 @@
-#include <iostream>
-#include <cstring>
-usingname space std;
+这是大一c++课程设计2 的期末大作业
