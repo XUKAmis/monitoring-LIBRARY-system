@@ -165,7 +165,7 @@ public:
             getline(ss, publisher, ',');
             ss >> stock;
             ss.ignore();
-            Add(new ScienceBook(id, title, price, author, publisher, stock)); // Default to ScienceBook for simplicity
+            Add(new ScienceBook(id, title, price, author, publisher, stock)); 
         }
         file.close();
     }
@@ -184,8 +184,9 @@ int main() {
     cout << " 5. Enter 'save' to save the current library state to a file." << endl;
     cout << " 6. Enter 'quit' to exit the program." << endl;
     cout << "*****************************************************************" << endl;
+    ///////////////////////////////初始化library//////////////////////////////////
     Library lib;
-    lib.LoadBooks();
+    lib.LoadBooks();    //////////加载文件书库
 
     string command;
     while (true) {
@@ -193,30 +194,53 @@ int main() {
         cin >> command;
 
         if (command == "add") {
-            string id, title, author, publisher, type;
+            string id, title, author, publisher, type, lang;
             double price;
             int stock;
             cout << "Enter book type (science/social/foreign): ";////限制只允许这几个输入/////
             cin >> type;
-            cout << "Enter book ID: ";
-            cin >> id;
-            cout << "Enter title: ";
-            cin.ignore();
-            getline(cin, title); /////getline捕获输入流////////
-            cout << "Enter author: ";
-            getline(cin, author);
-            cout << "Enter publisher: ";
-            getline(cin, publisher);
-            cout << "Enter price: ";
-            cin >> price;
-            cout << "Enter stock: ";
-            cin >> stock;
+            if(type !="foreign"){            
+                cout << "Enter book ID: ";
+                cin >> id;
+                cout << "Enter title: ";
+                cin.ignore();
+                getline(cin, title); /////getline捕获输入流////////
+                cout << "Enter author: ";
+                getline(cin, author);
+                cout << "Enter publisher: ";
+                getline(cin, publisher);
+                cout << "Enter price: ";
+                cin >> price;
+                cout << "Enter stock: ";
+                cin >> stock;
+            }
+            else if(type == "foreign"){
+                cout << "Enter book ID: ";
+                cin >> id;
+                cout << "Enter title: ";
+                cin.ignore();
+                getline(cin, title); 
+                cout << "Enter author: ";
+                getline(cin, author);
+                cout << "Enter publisher: ";
+                getline(cin, publisher);
+                cout << "Enter language: ";
+                getline(cin,lang);
+                cout << "Enter price: ";
+                cin >> price;
+                cout << "Enter stock: ";
+                cin >> stock;
+            }
+
             //////////健壮性体现/////////////////////////
 
             if (type == "science") {
                 lib.Add(new ScienceBook(id, title, price, author, publisher, stock));
             } else if (type == "social") {
                 lib.Add(new SocialBook(id, title, price, author, publisher, stock));
+            }
+              else if (type == "foreign") {
+                lib.Add(new ForeignBook(id, title, price, author, publisher, stock,lang));
             } else {
                 cout << "Invalid book type entered." << endl;
             }
